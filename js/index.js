@@ -1,6 +1,6 @@
 // ITERATION 1
 
-function updateSubtotal(product) {
+const updateSubtotal = (product) => {
   // console.log(product);
   console.log('Calculating subtotal, yey!');
   const price = product.querySelector('.price span').innerHTML;
@@ -22,38 +22,53 @@ function updateSubtotal(product) {
   // console.log(typeof subTotal);
 
   return subTotalByItem;
-}
+};
 
-function calculateAll() {
-  // code in the following two lines is added just for testing purposes.
-  // it runs when only iteration 1 is completed. at later point, it can be removed.
-  // const singleProduct = document.querySelector('.product');
-  // updateSubtotal(singleProduct);
-  // end of test
+//Iteration 2 and 3, which I've done in sequence
 
-  // ITERATION 2
+// const calculateAll = () => {
+//   // code in the following two lines is added just for testing purposes.
+//   // it runs when only iteration 1 is completed. at later point, it can be removed.
+//   // const singleProduct = document.querySelector('.product');
+//   // updateSubtotal(singleProduct);
+//   // end of test
+
+//   // ITERATION 2
+//   const allProducts = document.querySelectorAll('.product');
+//   // console.log(allProducts);
+//   const myProductsArray = [...allProducts];
+
+//   let sumForEachItem = 0;
+//   myProductsArray.forEach((element) => {
+//     sumForEachItem = updateSubtotal(element);
+//   });
+//   //another approach with for of loop
+//   // for (let element of allProducts) {
+//   //   totalSum += updateSubtotal(element);
+//   // }
+
+//   // ITERATION 3
+//   let totalSum = 0;
+//   myProductsArray.forEach((element) => {
+//     totalSum += updateSubtotal(element);
+//   });
+//   const total = document.querySelector('#total-value span');
+
+//   total.innerHTML = totalSum;
+// }
+
+//Iteration 2 and 3, I've done code cleaner
+
+const calculateAll = () => {
   const allProducts = document.querySelectorAll('.product');
-  // console.log(allProducts);
   const myProductsArray = [...allProducts];
-
-  let sumForEachItem = 0;
-  myProductsArray.forEach((element) => {
-    sumForEachItem = updateSubtotal(element);
-  });
-  //another approach with for of loop
-  // for (let element of allProducts) {
-  //   totalSum += updateSubtotal(element);
-  // }
-
-  // ITERATION 3
-  let totalSum = 0;
-  myProductsArray.forEach((element) => {
-    totalSum += updateSubtotal(element);
-  });
   const total = document.querySelector('#total-value span');
-
-  total.innerHTML = totalSum;
-}
+  let sum = 0;
+  myProductsArray.forEach((element) => {
+    sum += updateSubtotal(element);
+  });
+  total.innerHTML = sum;
+};
 
 // ITERATION 4
 
